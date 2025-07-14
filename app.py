@@ -1,5 +1,4 @@
 import streamlit as st
-import pyperclip  # For copying text to clipboard
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.embeddings import OpenAIEmbeddings
