@@ -1,5 +1,5 @@
 import streamlit as st
-from python_dotenv import load_dotenv
+from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -15,7 +15,7 @@ load_dotenv()
 # Retrieve API keys
 deepseek_api_key = "sk-f3e2c3e574c24ec6927c75513a69d5db"
 groq_api_key = "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"
-openai_api_key = "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"
+openai_api_key = "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"
 
 # Ensure API keys are set
 if not groq_api_key or not deepseek_api_key or not openai_api_key:
@@ -28,10 +28,10 @@ st.set_page_config(page_title="FDD CoPilot", layout="wide")
 # Load and display KPMG logo beside header
 col_logo, col_title = st.columns([1, 5])
 with col_logo:
-     try: 
+    try: 
         logo = Image.open("kpmg_logo.png")
         st.image(logo, width=100)
-     except FileNotFoundError:
+    except FileNotFoundError:
         st.write("🏢 KPMG")
 with col_title:
     st.header("FDD Co-Pilot")
@@ -169,9 +169,9 @@ if st.button("Submit"):
                 for idx, follow_up in enumerate(follow_up_questions):
                     if follow_up.strip():
                         st.markdown(f"- {follow_up.strip()}")
-                        if st.button("Copy", key=f"copy_follow_up_{idx}"):
-                            pyperclip.copy(follow_up.strip())
-                            st.success("Copied to clipboard!")
+                        if st.button("📋 Copy", key=f"copy_follow_up_{idx}"):
+                            st.code(follow_up.strip())
+                            st.success("Question displayed above - select and copy manually!")
 
             st.session_state.conversation_history.append({"question": question, "response": main_response})
         except Exception as e:
