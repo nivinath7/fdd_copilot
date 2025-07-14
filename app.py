@@ -1,5 +1,5 @@
 import streamlit as st
-from dotenv import load_dotenv
+from python_dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
