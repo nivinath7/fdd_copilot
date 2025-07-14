@@ -29,8 +29,11 @@ st.set_page_config(page_title="FDD CoPilot", layout="wide")
 # Load and display KPMG logo beside header
 col_logo, col_title = st.columns([1, 5])
 with col_logo:
-    logo = Image.open("/home/nivi_nath/Desktop/kpmg/fdd_automation/kpmg_logo.png")
-    st.image(logo, width=120)
+     try: 
+        logo = Image.open("kpmg_logo.png")
+        st.image(logo, width=100)
+    except FileNotFoundError:
+        st.write("🏢 KPMG")
 with col_title:
     st.header("FDD Co-Pilot")
 
