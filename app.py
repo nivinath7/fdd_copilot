@@ -32,7 +32,7 @@ with col_logo:
      try: 
         logo = Image.open("kpmg_logo.png")
         st.image(logo, width=100)
-    except FileNotFoundError:
+     except FileNotFoundError:
         st.write("🏢 KPMG")
 with col_title:
     st.header("FDD Co-Pilot")
