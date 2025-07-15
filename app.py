@@ -17,9 +17,8 @@ load_dotenv()
 # Retrieve API keys
 deepseek_api_key = "sk-f3e2c3e574c24ec6927c75513a69d5db"
 groq_api_key = "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"
-openai_api_key = "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"
+openai_api_key = new_key = "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"
 
-# Ensure API keys are set
 if not groq_api_key or not deepseek_api_key or not openai_api_key:
     st.error("API keys are missing. Please check your environment variables.")
     st.stop()
